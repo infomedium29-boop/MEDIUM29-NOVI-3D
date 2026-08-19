@@ -1,0 +1,12 @@
+MEDIUM29 V2 — STAGING ZAŠTITA
+
+Ova verzija je namjerno postavljena kao NOINDEX kako se pages.dev testni projekt ne bi indeksirao.
+
+PRIJE PREBACIVANJA NA GLAVNU DOMENU:
+1. U svim .html datotekama promijeni: noindex, nofollow -> index, follow
+2. U robots.txt ukloni "Disallow: /" i postavi:
+   User-agent: *
+   Allow: /
+   Sitemap: https://medium29.com/sitemap.xml
+3. Provjeri canonical URL-ove i sitemap nakon finalnog deploya.
+4. Tek tada zatraži indeksiranje u Google Search Console.

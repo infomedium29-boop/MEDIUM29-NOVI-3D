@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Portfolio — Medium29 | Naši radovi</title>
 <meta name="description" content="Pogledajte naše projekte — web stranice, marketing kampanje i digital signage rješenja koja smo realizirali za klijente diljem regije.">
-<meta name="robots" content="index, follow">
+<meta name="robots" content="noindex, nofollow">
 <link rel="canonical" href="https://medium29.com/portfolio">
 <meta property="og:url" content="https://medium29.com/portfolio">
 <link rel="sitemap" type="application/xml" href="/sitemap.xml">
@@ -201,8 +201,8 @@
 
   <!-- SEO & Open Graph -->
   <meta name="author" content="Medium29">
-  <meta name="geo.region" content="HR-14">
-  <meta name="geo.placename" content="Osijek">
+  <meta name="geo.region" content="HR-16">
+  <meta name="geo.placename" content="Vukovar">
 
   <!-- Open Graph (Facebook, LinkedIn) -->
   <meta property="og:type" content="website">
@@ -226,7 +226,7 @@
     "url": "https://medium29.com",
     "address": {
       "@type": "PostalAddress",
-      "addressLocality": "Osijek",
+      "addressLocality": "Vukovar",
       "addressCountry": "HR"
     },
     "email": "info.medium29@gmail.com",
@@ -274,141 +274,39 @@
   <div class="page-hero-glow"></div>
   <div class="page-hero-tag">Portfolio</div>
   <h1>Naši <span class="accent">radovi</span><br>govore za nas</h1>
-  <p class="page-hero-sub">Svaki projekt je priča o suradnji, kreativnosti i rezultatima koji se mjere.</p>
+  <p class="page-hero-sub">Različite industrije, različiti ciljevi — isti fokus na jasno iskustvo, brzinu i funkcionalnost.</p>
 </div>
 
 <!-- PORTFOLIO -->
 <section class="portfolio-section">
   <div class="filter-bar reveal">
     <button class="filter-btn active" onclick="filterPortfolio('sve', this)">Sve</button>
-    <button class="filter-btn" onclick="filterPortfolio('web', this)">Web dizajn</button>
-    <button class="filter-btn" onclick="filterPortfolio('marketing', this)">Marketing</button>
-    <button class="filter-btn" onclick="filterPortfolio('signage', this)">Digital Signage</button>
+    <button class="filter-btn" onclick="filterPortfolio('web', this)">Web</button>
+    <button class="filter-btn" onclick="filterPortfolio('booking', this)">Rezervacije</button>
+    <button class="filter-btn" onclick="filterPortfolio('multilang', this)">Više jezika</button>
   </div>
 
   <div class="portfolio-grid" id="portfolioGrid">
-    <div class="portfolio-item large c1" data-cat="web">
-      <div class="portfolio-item-bg">🌐</div>
-      <div class="portfolio-item-inner">
-        <div class="portfolio-tag">Web dizajn</div>
-        <h3>Restoran Slavonija</h3>
-        <p>Kompletna web prisutnost s online rezervacijom i menijom</p>
-      </div>
-      <div class="portfolio-item-arrow">→</div>
-    </div>
-    <div class="portfolio-item medium c2" data-cat="marketing">
-      <div class="portfolio-item-bg">📣</div>
-      <div class="portfolio-item-inner">
-        <div class="portfolio-tag">Marketing</div>
-        <h3>Fitness Studio Flow</h3>
-        <p>Meta kampanja koja povećala upite za 340%</p>
-      </div>
-      <div class="portfolio-item-arrow">→</div>
-    </div>
-    <div class="portfolio-item medium c3" data-cat="signage">
-      <div class="portfolio-item-bg">📺</div>
-      <div class="portfolio-item-inner">
-        <div class="portfolio-tag">Digital Signage</div>
-        <h3>Trgovački Centar Park</h3>
-        <p>12 digitalnih ekrana s centralnim upravljanjem</p>
-      </div>
-      <div class="portfolio-item-arrow">→</div>
-    </div>
-    <div class="portfolio-item large c4" data-cat="web">
-      <div class="portfolio-item-bg">💻</div>
-      <div class="portfolio-item-inner">
-        <div class="portfolio-tag">Web dizajn</div>
-        <h3>Odvjetnički ured Marković</h3>
-        <p>Premium web prezentacija s naglaskom na povjerenje i stručnost</p>
-      </div>
-      <div class="portfolio-item-arrow">→</div>
-    </div>
-    <div class="portfolio-item half c5" data-cat="web">
-      <div class="portfolio-item-bg">🏠</div>
-      <div class="portfolio-item-inner">
-        <div class="portfolio-tag">Web dizajn</div>
-        <h3>Agencija Nekretnine Plus</h3>
-        <p>Landing page s integracijom baze nekretnina</p>
-      </div>
-      <div class="portfolio-item-arrow">→</div>
-    </div>
-    <div class="portfolio-item half c6" data-cat="marketing">
-      <div class="portfolio-item-bg">📊</div>
-      <div class="portfolio-item-inner">
-        <div class="portfolio-tag">Marketing</div>
-        <h3>Cafe Bar Legends</h3>
-        <p>Social media management s rastom od 0 na 5k pratitelja u 3 mj.</p>
-      </div>
-      <div class="portfolio-item-arrow">→</div>
-    </div>
-    <div class="portfolio-item third c1" data-cat="signage">
-      <div class="portfolio-item-bg">🏥</div>
-      <div class="portfolio-item-inner">
-        <div class="portfolio-tag">Digital Signage</div>
-        <h3>Poliklinika Medikum</h3>
-        <p>Informativni ekrani u čekaonicama</p>
-      </div>
-      <div class="portfolio-item-arrow">→</div>
-    </div>
-    <div class="portfolio-item third c2" data-cat="web">
-      <div class="portfolio-item-bg">🎨</div>
-      <div class="portfolio-item-inner">
-        <div class="portfolio-tag">Web dizajn</div>
-        <h3>Studio Kreativa</h3>
-        <p>Portfolio stranica s wow animacijama</p>
-      </div>
-      <div class="portfolio-item-arrow">→</div>
-    </div>
-    <div class="portfolio-item third c3" data-cat="marketing">
-      <div class="portfolio-item-bg">🛒</div>
-      <div class="portfolio-item-inner">
-        <div class="portfolio-tag">Marketing</div>
-        <h3>Moda Shop Online</h3>
-        <p>Google Ads kampanja s ROI 4.2×</p>
-      </div>
-      <div class="portfolio-item-arrow">→</div>
-    </div>
+    <div class="portfolio-item large c1" data-cat="web booking"><div class="portfolio-item-bg">A153</div><div class="portfolio-item-inner"><div class="portfolio-tag">Web / rezervacije</div><h3>AUTO153</h3><p>Premium taxi i transfer web s višekoračnim rezervacijskim tokom i jasnim CTA elementima.</p></div><div class="portfolio-item-arrow">→</div></div>
+    <div class="portfolio-item medium c2" data-cat="web booking multilang"><div class="portfolio-item-bg">KRK</div><div class="portfolio-item-inner"><div class="portfolio-tag">Web / SEO / više jezika</div><h3>Taxi & Transferi Krk</h3><p>Višestranični web usmjeren na lokalne rute, aerodromske transfere i organsku vidljivost.</p></div><div class="portfolio-item-arrow">→</div></div>
+    <div class="portfolio-item medium c3" data-cat="web"><div class="portfolio-item-bg">DS</div><div class="portfolio-item-inner"><div class="portfolio-tag">Web / sadržaj</div><h3>Duh Slatine</h3><p>Jasan i profesionalan knjigovodstveni web s naglaskom na usluge, povjerenje i kontakt.</p></div><div class="portfolio-item-arrow">→</div></div>
+    <div class="portfolio-item large c4" data-cat="web"><div class="portfolio-item-bg">KOD</div><div class="portfolio-item-inner"><div class="portfolio-tag">Web / online narudžbe</div><h3>Restoran Kod Kuma</h3><p>Digitalni jelovnik i online narudžbe povezani u jednostavno iskustvo za goste.</p></div><div class="portfolio-item-arrow">→</div></div>
+    <div class="portfolio-item half c5" data-cat="web multilang"><div class="portfolio-item-bg">PP</div><div class="portfolio-item-inner"><div class="portfolio-tag">Web / smještaj</div><h3>Apartmani PuntaPlanka</h3><p>Vizualno čista prezentacija smještaja s galerijom i responzivnim iskustvom.</p></div><div class="portfolio-item-arrow">→</div></div>
+    <div class="portfolio-item half c6" data-cat="web multilang"><div class="portfolio-item-bg">KR</div><div class="portfolio-item-inner"><div class="portfolio-tag">Web / luxury travel</div><h3>Korčula Roko</h3><p>Dvojezična premium prezentacija s naglaskom na fotografiju, lokaciju i direktan kontakt.</p></div><div class="portfolio-item-arrow">→</div></div>
+    <div class="portfolio-item third c1" data-cat="web"><div class="portfolio-item-bg">M&C</div><div class="portfolio-item-inner"><div class="portfolio-tag">Web / industrija</div><h3>Melman & Co</h3><p>Premium prezentacija metalnih nadstrešnica s fokusom na reference i upite.</p></div><div class="portfolio-item-arrow">→</div></div>
+    <div class="portfolio-item third c2" data-cat="web"><div class="portfolio-item-bg">JJK</div><div class="portfolio-item-inner"><div class="portfolio-tag">Web / sport</div><h3>JJK Enso</h3><p>Sportski web koncept s blogom, galerijom i snažnim vizualnim identitetom.</p></div><div class="portfolio-item-arrow">→</div></div>
+    <div class="portfolio-item third c3" data-cat="web"><div class="portfolio-item-bg">DLL</div><div class="portfolio-item-inner"><div class="portfolio-tag">Web / poslovne usluge</div><h3>De lege lata</h3><p>Profesionalna web prezentacija dugogodišnjeg knjigovodstvenog poslovanja.</p></div><div class="portfolio-item-arrow">→</div></div>
   </div>
 </section>
 
-<!-- TESTIMONIALS -->
-<section class="testimonials">
-  <div class="section-tag reveal">Što klijenti kažu</div>
-  <h2 class="section-title reveal reveal-delay-1">Iskustva naših<br>klijenata</h2>
+<!-- PROCESS / TRUST -->
+<section class="testimonials portfolio-principles">
+  <div class="section-tag reveal">Što je zajedničko svakom projektu</div>
+  <h2 class="section-title reveal reveal-delay-1">Dizajn mora imati<br>razlog.</h2>
   <div class="testimonials-grid">
-    <div class="testimonial-card reveal">
-      <div class="testimonial-stars">★★★★★</div>
-      <p class="testimonial-text">Medium29 je napravio upravo ono što smo trebali — moderan sajt koji privlači goste. Već u prvom tjednu imali smo više rezervacija nego ikad.</p>
-      <div class="testimonial-author">
-        <div class="testimonial-avatar">MS</div>
-        <div>
-          <div class="testimonial-name">Mario Šimić</div>
-          <div class="testimonial-company">Restoran Slavonija</div>
-        </div>
-      </div>
-    </div>
-    <div class="testimonial-card reveal reveal-delay-2">
-      <div class="testimonial-stars">★★★★★</div>
-      <p class="testimonial-text">Kampanja na Meti je premašila sva očekivanja. Upiti su se utrostručili, a cijena po klijentu pala za 60%. Preporučujem svima.</p>
-      <div class="testimonial-author">
-        <div class="testimonial-avatar">AK</div>
-        <div>
-          <div class="testimonial-name">Ana Kovačević</div>
-          <div class="testimonial-company">Fitness Studio Flow</div>
-        </div>
-      </div>
-    </div>
-    <div class="testimonial-card reveal reveal-delay-3">
-      <div class="testimonial-stars">★★★★★</div>
-      <p class="testimonial-text">Digitalni ekrani su transformirali naš prostor. Sadržaj mijenjamo daljinski u sekundi, a kupci to primjećuju. Odlična investicija.</p>
-      <div class="testimonial-author">
-        <div class="testimonial-avatar">IP</div>
-        <div>
-          <div class="testimonial-name">Ivan Petrović</div>
-          <div class="testimonial-company">TC Park Osijek</div>
-        </div>
-      </div>
-    </div>
+    <div class="testimonial-card reveal"><div class="testimonial-stars">01</div><p class="testimonial-text">Prvo definiramo cilj stranice, publiku i put korisnika. Vizual dolazi tek kada znamo što web treba postići.</p><div class="testimonial-author"><div class="testimonial-avatar">UX</div><div><div class="testimonial-name">Jasna struktura</div><div class="testimonial-company">Sadržaj prije dekoracije</div></div></div></div>
+    <div class="testimonial-card reveal reveal-delay-2"><div class="testimonial-stars">02</div><p class="testimonial-text">Animacije i 3D koristimo tamo gdje pojačavaju iskustvo, bez nepotrebnog opterećenja i bez žrtvovanja mobilne verzije.</p><div class="testimonial-author"><div class="testimonial-avatar">UI</div><div><div class="testimonial-name">Premium izvedba</div><div class="testimonial-company">Motion s mjerom</div></div></div></div>
+    <div class="testimonial-card reveal reveal-delay-3"><div class="testimonial-stars">03</div><p class="testimonial-text">Prije objave provjeravamo responzivnost, forme, navigaciju, osnovni SEO i tehničke detalje koji utječu na stvarno korištenje.</p><div class="testimonial-author"><div class="testimonial-avatar">QA</div><div><div class="testimonial-name">Provjera prije objave</div><div class="testimonial-company">Desktop + mobile</div></div></div></div>
   </div>
 </section>
 
@@ -443,7 +341,7 @@
       <ul>
         <li><a href="mailto:info.medium29@gmail.com">info.medium29@gmail.com</a></li>
         <li><a href="https://medium29.com">medium29.com</a></li>
-        <li><a href="#">Osijek, Hrvatska</a></li>
+        <li><a href="#">Vukovar, Hrvatska</a></li>
       </ul>
     </div>
   </div>
@@ -627,7 +525,7 @@ function filterPortfolio(cat, btn) {
   document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
   document.querySelectorAll('.portfolio-item').forEach(item => {
-    const show = cat === 'sve' || item.dataset.cat === cat;
+    const show = cat === 'sve' || (item.dataset.cat || '').split(/\s+/).includes(cat);
     item.style.transition = 'opacity 0.3s, transform 0.3s';
     if (show) {
       item.style.opacity = '1';
@@ -642,7 +540,7 @@ function filterPortfolio(cat, btn) {
 }
 </script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" integrity="sha512-dLxUelApnYxpLt6K2iomGngnHO83iUvZytA3YjDUCjT0HDOHKXnVYdf3hU4JjM8uEhxf9nD1/ey98U3t2vZ0qQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="three-bg.js"></script>
 <script src="motion-lab.js"></script>
 <script src="cookie-consent.js"></script>

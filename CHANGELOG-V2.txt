@@ -1,0 +1,21 @@
+MEDIUM29 V2 — PREMIUM MOTION / 3D STAGING
+
+GLAVNE IZMJENE
+- Hero 3D storytelling: M29 monogram u WebGL sceni, reakcija na miš i scroll, kontrolirano slabljenje 3D scene po sekcijama.
+- Motion reel: zadržan dvosmjerni scroll, uklonjen developerski/demo tekst i uveden prodajno smislen sadržaj.
+- Character-by-character reveal optimiziran i zadržan.
+- Editorial Services sekcija zadržana i očišćena od nedokazivih statistika.
+- Selected Work potpuno prerađen u Odabrane radove s projektima AUTO153, Taxi & Transferi Krk i Duh Slatine.
+- Dodani vlastiti CSS mockup vizuali projekata umjesto generičkih placeholder kartica.
+- Mobile sticky stack skraćen i ublažen; manji transformi i lakši scroll.
+- Portfolio stranica očišćena od izmišljenih metrike/testimoniala i zamijenjena stvarnim projektima + principima rada.
+- O nama: uklonjene nedokazive brojke i lažni team-card dojam; uveden realan proces i discipline.
+- Usluge: uklonjene tvrdnje 3x/40%/65% koje nisu potkrijepljene podacima.
+- Lokacija usklađena na Vukovar u javnom sadržaju i strukturiranim podacima; pravni tekst s Borovom nije mijenjan.
+- Hrvatski jezik dodatno ujednačen (web stranica, izrađujemo, mjesečni itd.).
+- Three.js verzija je fiksirana na r128 i zaštićena SRI integrity hashom.
+- Staging SEO: sve stranice noindex,nofollow + robots.txt Disallow: /.
+- Dodana datoteka STAGING-PRIJE-FINALA.txt s koracima za finalni prelazak.
+
+NAPOMENA
+Ovaj ZIP je namijenjen NOVOM Cloudflare Pages testnom projektu. Ne spajati na glavnu domenu dok se vizualno ne potvrdi finalna verzija.

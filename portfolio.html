@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+<meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio — Medium29 | Naši radovi</title>
+<meta name="description" content="Pogledajte naše projekte — web stranice, marketing kampanje i digital signage rješenja koja smo realizirali za klijente diljem regije.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://medium29.com/portfolio">
+<meta property="og:url" content="https://medium29.com/portfolio">
+<link rel="sitemap" type="application/xml" href="/sitemap.xml">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="motion-lab.css">
+<link rel="stylesheet" href="cookie-consent.css">
+<style>
+  /* FILTER */
+  .filter-bar {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 3.5rem;
+  }
+  .filter-btn {
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 500;
+    padding: 0.5rem 1.2rem;
+    border-radius: 100px;
+    cursor: none;
+    transition: all 0.25s;
+    letter-spacing: 0.03em;
+  }
+  .filter-btn:hover { border-color: rgba(255,255,255,0.2); color: var(--text); }
+  .filter-btn.active { background: var(--accent); color: #000; border-color: var(--accent); font-weight: 600; }
+
+  /* PORTFOLIO GRID */
+  .portfolio-section { background: var(--bg); }
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+
+  .portfolio-item {
+    position: relative;
+    overflow: hidden;
+    cursor: none;
+    background: var(--bg2);
+    transition: background 0.3s;
+  }
+  .portfolio-item.large { grid-column: span 7; min-height: 420px; }
+  .portfolio-item.medium { grid-column: span 5; min-height: 420px; }
+  .portfolio-item.half { grid-column: span 6; min-height: 320px; }
+  .portfolio-item.third { grid-column: span 4; min-height: 300px; }
+
+  .portfolio-item-inner {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 2.5rem;
+    background: linear-gradient(to top, rgba(6,6,8,0.95) 0%, rgba(6,6,8,0.4) 50%, transparent 100%);
+    transition: padding 0.4s;
+  }
+  .portfolio-item:hover .portfolio-item-inner { padding-bottom: 3rem; }
+
+  .portfolio-item-bg {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 6rem;
+    opacity: 0.15;
+    transition: transform 0.5s ease, opacity 0.4s;
+  }
+  .portfolio-item:hover .portfolio-item-bg { transform: scale(1.08); opacity: 0.22; }
+
+  .portfolio-tag {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: rgba(200,255,0,0.1);
+    border: 1px solid rgba(200,255,0,0.2);
+    padding: 0.22rem 0.7rem;
+    border-radius: 100px;
+    margin-bottom: 0.7rem;
+    width: fit-content;
+  }
+  .portfolio-item h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.4rem;
+    line-height: 1.2;
+  }
+  .portfolio-item p { font-size: 0.85rem; color: var(--muted); line-height: 1.5; }
+  .portfolio-item-arrow {
+    position: absolute;
+    top: 1.5rem; right: 1.5rem;
+    width: 36px; height: 36px;
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--muted);
+    font-size: 0.9rem;
+    opacity: 0;
+    transition: all 0.3s;
+    transform: rotate(-45deg);
+  }
+  .portfolio-item:hover .portfolio-item-arrow {
+    opacity: 1;
+    border-color: var(--accent);
+    color: var(--accent);
+    transform: rotate(0deg);
+  }
+
+  /* BG COLORS PER ITEM */
+  .portfolio-item.c1 { background: #0a0f0d; }
+  .portfolio-item.c2 { background: #0d0a10; }
+  .portfolio-item.c3 { background: #0f0d0a; }
+  .portfolio-item.c4 { background: #0a0d10; }
+  .portfolio-item.c5 { background: #100a0d; }
+  .portfolio-item.c6 { background: #0a100d; }
+
+  /* TESTIMONIALS */
+  .testimonials { background: var(--bg2); border-top: 1px solid var(--border); }
+  .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); margin-top: 3.5rem; }
+  .testimonial-card { background: var(--bg2); padding: 2.5rem; transition: background 0.3s; cursor: none; }
+  .testimonial-card:hover { background: var(--bg3); }
+  .testimonial-stars { color: var(--accent); font-size: 0.85rem; margin-bottom: 1.2rem; letter-spacing: 0.1em; }
+  .testimonial-text { font-size: 0.95rem; color: var(--muted); line-height: 1.75; margin-bottom: 1.8rem; font-style: italic; }
+  .testimonial-text::before { content: '"'; color: var(--accent); font-size: 1.5rem; font-family: 'Syne', sans-serif; line-height: 0; vertical-align: -0.3em; margin-right: 0.2rem; }
+  .testimonial-author { display: flex; align-items: center; gap: 0.8rem; }
+  .testimonial-avatar {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: rgba(200,255,0,0.08);
+    border: 1px solid rgba(200,255,0,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Syne', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--accent);
+    flex-shrink: 0;
+  }
+  .testimonial-name { font-size: 0.88rem; font-weight: 500; color: var(--text); }
+  .testimonial-company { font-size: 0.78rem; color: var(--muted); }
+
+  @media (max-width:900px) {
+    .portfolio-item.large,
+    .portfolio-item.medium,
+    .portfolio-item.half,
+    .portfolio-item.third { grid-column: span 12; min-height: 260px; }
+    .testimonials-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 900px) {
+    * { max-width: 100%; }
+    .hero { padding: 0 1.5rem; min-height: 100svh; }
+    .hero h1 { font-size: clamp(2.4rem, 11vw, 4rem); }
+    .hero-actions { flex-direction: column; align-items: flex-start; gap: 0.8rem; }
+    .btn-primary, .btn-ghost { width: 100%; justify-content: center; box-sizing: border-box; }
+    .page-hero { padding: 6rem 1.5rem 3rem; }
+    .page-hero h1 { font-size: clamp(2rem, 10vw, 3.2rem); }
+    .page-hero-tag { font-size: 0.68rem; }
+    .section-title { font-size: clamp(1.7rem, 8vw, 2.5rem); }
+  }
+
+  /* THREE.JS BACKGROUND */
+  #three-bg {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    z-index: 0;
+    pointer-events: none;
+  }
+  body > *:not(#three-bg):not(.cursor):not(.cursor-follower):not(.mobile-menu) {
+    position: relative;
+    z-index: 1;
+  }
+  .mobile-menu { z-index: 999; }
+
+</style>
+
+  <!-- SEO & Open Graph -->
+  <meta name="author" content="Medium29">
+  <meta name="geo.region" content="HR-14">
+  <meta name="geo.placename" content="Osijek">
+
+  <!-- Open Graph (Facebook, LinkedIn) -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Portfolio — Medium29 | Naši radovi">
+  <meta property="og:description" content="Pogledajte naše projekte — web stranice, marketing kampanje i digital signage rješenja koja smo realizirali za klijente diljem regije.">
+  <meta property="og:site_name" content="Medium29">
+  <meta property="og:locale" content="hr_HR">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Portfolio — Medium29 | Naši radovi">
+  <meta name="twitter:description" content="Pogledajte naše projekte — web stranice, marketing kampanje i digital signage rješenja koja smo realizirali za klijente diljem regije.">
+
+  <!-- Schema.org structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Medium29",
+    "description": "Digitalna agencija specijalizirana za web dizajn, digitalni marketing i digital signage rješenja.",
+    "url": "https://medium29.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Osijek",
+      "addressCountry": "HR"
+    },
+    "email": "info.medium29@gmail.com",
+    "sameAs": [
+      "https://medium29.com"
+    ]
+  }
+  </script>
+</head>
+<body>
+
+<canvas id="three-bg"></canvas>
+<div class="cursor" id="cursor"></div>
+<div class="cursor-follower" id="cursorFollower"></div>
+
+<nav id="navbar">
+  <a href="/" class="logo">Medium<span>29</span></a>
+  <ul class="nav-links">
+    <li><a href="/">Početna</a></li>
+    <li><a href="/o-nama">O nama</a></li>
+    <li><a href="/usluge">Usluge</a></li>
+    <li><a href="/portfolio">Portfolio</a></li>
+    <li><a href="/kontakt" class="nav-cta">Kontakt</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Otvori meni">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <ul class="mobile-menu-links">
+    <li><a href="/">Početna</a></li>
+    <li><a href="/o-nama">O nama</a></li>
+    <li><a href="/usluge">Usluge</a></li>
+    <li><a href="/portfolio">Portfolio</a></li>
+  </ul>
+  <div class="mobile-menu-cta">
+    <a href="/kontakt">Zatraži ponudu</a>
+  </div>
+</div>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-grid"></div>
+  <div class="page-hero-glow"></div>
+  <div class="page-hero-tag">Portfolio</div>
+  <h1>Naši <span class="accent">radovi</span><br>govore za nas</h1>
+  <p class="page-hero-sub">Svaki projekt je priča o suradnji, kreativnosti i rezultatima koji se mjere.</p>
+</div>
+
+<!-- PORTFOLIO -->
+<section class="portfolio-section">
+  <div class="filter-bar reveal">
+    <button class="filter-btn active" onclick="filterPortfolio('sve', this)">Sve</button>
+    <button class="filter-btn" onclick="filterPortfolio('web', this)">Web dizajn</button>
+    <button class="filter-btn" onclick="filterPortfolio('marketing', this)">Marketing</button>
+    <button class="filter-btn" onclick="filterPortfolio('signage', this)">Digital Signage</button>
+  </div>
+
+  <div class="portfolio-grid" id="portfolioGrid">
+    <div class="portfolio-item large c1" data-cat="web">
+      <div class="portfolio-item-bg">🌐</div>
+      <div class="portfolio-item-inner">
+        <div class="portfolio-tag">Web dizajn</div>
+        <h3>Restoran Slavonija</h3>
+        <p>Kompletna web prisutnost s online rezervacijom i menijom</p>
+      </div>
+      <div class="portfolio-item-arrow">→</div>
+    </div>
+    <div class="portfolio-item medium c2" data-cat="marketing">
+      <div class="portfolio-item-bg">📣</div>
+      <div class="portfolio-item-inner">
+        <div class="portfolio-tag">Marketing</div>
+        <h3>Fitness Studio Flow</h3>
+        <p>Meta kampanja koja povećala upite za 340%</p>
+      </div>
+      <div class="portfolio-item-arrow">→</div>
+    </div>
+    <div class="portfolio-item medium c3" data-cat="signage">
+      <div class="portfolio-item-bg">📺</div>
+      <div class="portfolio-item-inner">
+        <div class="portfolio-tag">Digital Signage</div>
+        <h3>Trgovački Centar Park</h3>
+        <p>12 digitalnih ekrana s centralnim upravljanjem</p>
+      </div>
+      <div class="portfolio-item-arrow">→</div>
+    </div>
+    <div class="portfolio-item large c4" data-cat="web">
+      <div class="portfolio-item-bg">💻</div>
+      <div class="portfolio-item-inner">
+        <div class="portfolio-tag">Web dizajn</div>
+        <h3>Odvjetnički ured Marković</h3>
+        <p>Premium web prezentacija s naglaskom na povjerenje i stručnost</p>
+      </div>
+      <div class="portfolio-item-arrow">→</div>
+    </div>
+    <div class="portfolio-item half c5" data-cat="web">
+      <div class="portfolio-item-bg">🏠</div>
+      <div class="portfolio-item-inner">
+        <div class="portfolio-tag">Web dizajn</div>
+        <h3>Agencija Nekretnine Plus</h3>
+        <p>Landing page s integracijom baze nekretnina</p>
+      </div>
+      <div class="portfolio-item-arrow">→</div>
+    </div>
+    <div class="portfolio-item half c6" data-cat="marketing">
+      <div class="portfolio-item-bg">📊</div>
+      <div class="portfolio-item-inner">
+        <div class="portfolio-tag">Marketing</div>
+        <h3>Cafe Bar Legends</h3>
+        <p>Social media management s rastom od 0 na 5k pratitelja u 3 mj.</p>
+      </div>
+      <div class="portfolio-item-arrow">→</div>
+    </div>
+    <div class="portfolio-item third c1" data-cat="signage">
+      <div class="portfolio-item-bg">🏥</div>
+      <div class="portfolio-item-inner">
+        <div class="portfolio-tag">Digital Signage</div>
+        <h3>Poliklinika Medikum</h3>
+        <p>Informativni ekrani u čekaonicama</p>
+      </div>
+      <div class="portfolio-item-arrow">→</div>
+    </div>
+    <div class="portfolio-item third c2" data-cat="web">
+      <div class="portfolio-item-bg">🎨</div>
+      <div class="portfolio-item-inner">
+        <div class="portfolio-tag">Web dizajn</div>
+        <h3>Studio Kreativa</h3>
+        <p>Portfolio stranica s wow animacijama</p>
+      </div>
+      <div class="portfolio-item-arrow">→</div>
+    </div>
+    <div class="portfolio-item third c3" data-cat="marketing">
+      <div class="portfolio-item-bg">🛒</div>
+      <div class="portfolio-item-inner">
+        <div class="portfolio-tag">Marketing</div>
+        <h3>Moda Shop Online</h3>
+        <p>Google Ads kampanja s ROI 4.2×</p>
+      </div>
+      <div class="portfolio-item-arrow">→</div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div class="section-tag reveal">Što klijenti kažu</div>
+  <h2 class="section-title reveal reveal-delay-1">Iskustva naših<br>klijenata</h2>
+  <div class="testimonials-grid">
+    <div class="testimonial-card reveal">
+      <div class="testimonial-stars">★★★★★</div>
+      <p class="testimonial-text">Medium29 je napravio upravo ono što smo trebali — moderan sajt koji privlači goste. Već u prvom tjednu imali smo više rezervacija nego ikad.</p>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar">MS</div>
+        <div>
+          <div class="testimonial-name">Mario Šimić</div>
+          <div class="testimonial-company">Restoran Slavonija</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card reveal reveal-delay-2">
+      <div class="testimonial-stars">★★★★★</div>
+      <p class="testimonial-text">Kampanja na Meti je premašila sva očekivanja. Upiti su se utrostručili, a cijena po klijentu pala za 60%. Preporučujem svima.</p>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar">AK</div>
+        <div>
+          <div class="testimonial-name">Ana Kovačević</div>
+          <div class="testimonial-company">Fitness Studio Flow</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card reveal reveal-delay-3">
+      <div class="testimonial-stars">★★★★★</div>
+      <p class="testimonial-text">Digitalni ekrani su transformirali naš prostor. Sadržaj mijenjamo daljinski u sekundi, a kupci to primjećuju. Odlična investicija.</p>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar">IP</div>
+        <div>
+          <div class="testimonial-name">Ivan Petrović</div>
+          <div class="testimonial-company">TC Park Osijek</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <a href="/" class="logo">Medium<span>29</span></a>
+      <p>Kompletna digitalna podrška za brendove koji žele ozbiljne rezultate.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Stranice</h4>
+      <ul>
+        <li><a href="/">Početna</a></li>
+        <li><a href="/o-nama">O nama</a></li>
+        <li><a href="/usluge">Usluge</a></li>
+        <li><a href="/portfolio">Portfolio</a></li>
+        <li><a href="/kontakt">Kontakt</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Usluge</h4>
+      <ul>
+        <li><a href="/usluge">Web dizajn</a></li>
+        <li><a href="/usluge">SEO optimizacija</a></li>
+        <li><a href="/usluge">Digital marketing</a></li>
+        <li><a href="/usluge">Digital signage</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Kontakt</h4>
+      <ul>
+        <li><a href="mailto:info.medium29@gmail.com">info.medium29@gmail.com</a></li>
+        <li><a href="https://medium29.com">medium29.com</a></li>
+        <li><a href="#">Osijek, Hrvatska</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Medium29. Sva prava pridržana.</p>
+    <div class="footer-legal">
+      <a href="/politika-privatnosti">Politika privatnosti</a>
+      <span aria-hidden="true">·</span>
+      <a href="/politika-kolacica">Politika kolačića</a>
+      <span aria-hidden="true">·</span>
+      <a href="#" class="cookie-settings-link">Postavke kolačića</a>
+    </div>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+gsap.registerPlugin(ScrollTrigger);
+
+
+// LENIS SMOOTH SCROLL
+if (typeof Lenis !== 'undefined') {
+  var lenis = new Lenis({
+    duration: 1.4,
+    easing: function(t) { return Math.min(1, 1.001 - Math.pow(2, -10 * t)); },
+    smooth: true,
+  });
+  function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+  requestAnimationFrame(raf);
+  if (typeof ScrollTrigger !== 'undefined') {
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.add(function(time) { lenis.raf(time * 1000); });
+    gsap.ticker.lagSmoothing(0);
+  }
+}
+
+// SPLIT TEXT HELPER
+function splitWords(el) {
+  var words = el.innerText.split(' ');
+  el.innerHTML = '';
+  var chars = [];
+  words.forEach(function(word) {
+    var outer = document.createElement('span');
+    outer.style.cssText = 'display:inline-block;overflow:hidden;margin-right:0.25em;';
+    var inner = document.createElement('span');
+    inner.style.display = 'inline-block';
+    inner.textContent = word;
+    outer.appendChild(inner);
+    el.appendChild(outer);
+    chars.push(inner);
+  });
+  return chars;
+}
+
+// PAGE HERO SPLIT TEXT
+var ph1 = document.querySelector('.page-hero h1');
+if (ph1 && window.innerWidth > 900) {
+  var phWords = splitWords(ph1);
+  gsap.from(phWords, { y: '110%', opacity: 0, duration: 0.9, stagger: 0.07, ease: 'power4.out', delay: 0.3 });
+} else if (ph1) {
+  gsap.from(ph1, { opacity: 0, y: 40, duration: 0.9, delay: 0.3, ease: 'power3.out' });
+}
+
+// SECTION TITLES
+document.querySelectorAll('.section-title').forEach(function(el) {
+  if (window.innerWidth > 900) {
+    var words = splitWords(el);
+    gsap.from(words, {
+      scrollTrigger: { trigger: el, start: 'top 85%' },
+      y: '110%', opacity: 0, duration: 0.7, stagger: 0.08, ease: 'power4.out'
+    });
+  } else {
+    gsap.from(el, {
+      scrollTrigger: { trigger: el, start: 'top 85%' },
+      opacity: 0, y: 30, duration: 0.7, ease: 'power3.out'
+    });
+  }
+});
+
+// CURSOR TRAIL
+if (window.innerWidth > 900) {
+  var trailCount = 8;
+  var trails = [];
+  for (var ti = 0; ti < trailCount; ti++) {
+    var dot = document.createElement('div');
+    dot.style.cssText = 'position:fixed;width:6px;height:6px;border-radius:50%;background:#c8ff00;pointer-events:none;z-index:9997;opacity:0;mix-blend-mode:difference;';
+    document.body.appendChild(dot);
+    trails.push({ el: dot, x: 0, y: 0 });
+  }
+  var tmx = 0, tmy = 0;
+  document.addEventListener('mousemove', function(e) { tmx = e.clientX; tmy = e.clientY; });
+  (function animateTrail() {
+    trails.forEach(function(trail, i) {
+      var prev = i === 0 ? { x: tmx, y: tmy } : trails[i - 1];
+      trail.x += (prev.x - trail.x) * 0.4;
+      trail.y += (prev.y - trail.y) * 0.4;
+      trail.el.style.left = trail.x + 'px';
+      trail.el.style.top = trail.y + 'px';
+      trail.el.style.transform = 'translate(-50%,-50%) scale(' + (1 - i / trailCount) + ')';
+      trail.el.style.opacity = (1 - i / trailCount) * 0.5;
+    });
+    requestAnimationFrame(animateTrail);
+  })();
+}
+
+// NAVBAR HIDE/SHOW
+var lastScrollP = 0;
+window.addEventListener('scroll', function() {
+  var current = window.scrollY;
+  if (current > lastScrollP && current > 200) {
+    gsap.to('#navbar', { y: -80, duration: 0.4, ease: 'power2.inOut' });
+  } else {
+    gsap.to('#navbar', { y: 0, duration: 0.4, ease: 'power2.out' });
+  }
+  lastScrollP = current;
+});
+
+
+// ── PAGE HERO ─────────────────────────────────────────────────
+const heroTl = gsap.timeline({ delay: 0.1 });
+heroTl.from('.page-hero-tag', { opacity: 0, y: 20, duration: 0.6, ease: 'power3.out' });
+heroTl.from('.page-hero h1', { opacity: 0, y: 50, duration: 0.9, ease: 'power4.out' }, '-=0.3');
+heroTl.from('.page-hero-sub', { opacity: 0, y: 30, duration: 0.7, ease: 'power3.out' }, '-=0.4');
+
+// ── FILTER BAR ────────────────────────────────────────────────
+gsap.from('.filter-btn', {
+  opacity: 0, y: 20, duration: 0.5, stagger: 0.08, ease: 'power3.out',
+  delay: 0.3
+});
+
+// ── PORTFOLIO ITEMS — masonry efekt ───────────────────────────
+gsap.from('.portfolio-item', {
+  scrollTrigger: { trigger: '#portfolioGrid', start: 'top 80%' },
+  opacity: 0, y: 50, scale: 0.96,
+  duration: 0.7, stagger: 0.1, ease: 'power3.out'
+});
+
+// ── TESTIMONIALS ──────────────────────────────────────────────
+gsap.from('.testimonial-card', {
+  scrollTrigger: { trigger: '.testimonials-grid', start: 'top 75%' },
+  opacity: 0, y: 50, duration: 0.8, stagger: 0.15, ease: 'power3.out'
+});
+
+// ── PORTFOLIO ITEM HOVER — GSAP tilt ─────────────────────────
+document.querySelectorAll('.portfolio-item').forEach(item => {
+  item.addEventListener('mousemove', e => {
+    const rect = item.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width - 0.5;
+    const y = (e.clientY - rect.top) / rect.height - 0.5;
+    gsap.to(item, {
+      rotateX: -y * 5,
+      rotateY: x * 5,
+      duration: 0.4,
+      ease: 'power2.out',
+      transformPerspective: 800
+    });
+  });
+  item.addEventListener('mouseleave', () => {
+    gsap.to(item, { rotateX: 0, rotateY: 0, duration: 0.5, ease: 'power3.out' });
+  });
+});
+
+// ── NAVBAR ────────────────────────────────────────────────────
+let lastScroll = 0;
+window.addEventListener('scroll', () => {
+  const current = window.scrollY;
+  if (current > lastScroll && current > 200) {
+    gsap.to('#navbar', { y: -80, duration: 0.4, ease: 'power2.inOut' });
+  } else {
+    gsap.to('#navbar', { y: 0, duration: 0.4, ease: 'power2.out' });
+  }
+  lastScroll = current;
+});
+</script>
+<script>
+function filterPortfolio(cat, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.portfolio-item').forEach(item => {
+    const show = cat === 'sve' || item.dataset.cat === cat;
+    item.style.transition = 'opacity 0.3s, transform 0.3s';
+    if (show) {
+      item.style.opacity = '1';
+      item.style.transform = 'scale(1)';
+      item.style.display = '';
+    } else {
+      item.style.opacity = '0';
+      item.style.transform = 'scale(0.97)';
+      setTimeout(() => { if(item.style.opacity === '0') item.style.display = 'none'; }, 300);
+    }
+  });
+}
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="three-bg.js"></script>
+<script src="motion-lab.js"></script>
+<script src="cookie-consent.js"></script>
+</body>
+</html>

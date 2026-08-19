@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+<meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Medium29 — Web dizajn, Marketing & Digital Signage</title>
+<meta name="description" content="Kompletna digitalna podrška — web dizajn, digitalni marketing i digital signage rješenja za vaše poslovanje. Brza isporuka, podrška nakon projekta.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://medium29.com/">
+<meta property="og:url" content="https://medium29.com/">
+<link rel="sitemap" type="application/xml" href="/sitemap.xml">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="motion-lab.css">
+<link rel="stylesheet" href="cookie-consent.css">
+<style>
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-bg-grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 80px 80px;
+    mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%);
+  }
+  .hero-glow {
+    position: absolute;
+    width: 700px; height: 700px;
+    background: radial-gradient(circle, rgba(200,255,0,0.07) 0%, transparent 70%);
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    animation: glowPulse 5s ease-in-out infinite;
+    pointer-events: none;
+  }
+  .hero-glow-2 {
+    position: absolute;
+    width: 450px; height: 450px;
+    background: radial-gradient(circle, rgba(123,94,167,0.08) 0%, transparent 70%);
+    top: 15%; right: 8%;
+    animation: glowPulse2 7s ease-in-out infinite;
+    pointer-events: none;
+  }
+  @keyframes glowPulse {
+    0%,100%{opacity:0.6;transform:translate(-50%,-50%) scale(1)}
+    50%{opacity:1;transform:translate(-50%,-50%) scale(1.1)}
+  }
+  @keyframes glowPulse2 {
+    0%,100%{opacity:0.5;transform:scale(1)}
+    50%{opacity:1;transform:scale(1.12)}
+  }
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(200,255,0,0.08);
+    border: 1px solid rgba(200,255,0,0.2);
+    color: var(--accent);
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.4rem 1rem;
+    border-radius: 100px;
+    margin-bottom: 2.5rem;
+    width: fit-content;
+    animation: fadeUp 0.8s 0.2s both;
+  }
+  .hero-tag::before {
+    content: '';
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    animation: blink 1.5s infinite;
+  }
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.2} }
+  .hero h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(3.5rem, 8vw, 7.5rem);
+    font-weight: 800;
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+    margin-bottom: 2rem;
+    max-width: 950px;
+    animation: fadeUp 0.8s 0.4s both;
+  }
+  .hero h1 .accent-word { color: var(--accent); font-style: italic; }
+  .hero h1 .outline-word {
+    -webkit-text-stroke: 1px rgba(240,240,240,0.35);
+    color: transparent;
+  }
+  .hero-sub {
+    font-size: 1.1rem;
+    color: var(--muted);
+    max-width: 520px;
+    line-height: 1.7;
+    margin-bottom: 3rem;
+    animation: fadeUp 0.8s 0.6s both;
+  }
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
+    animation: fadeUp 0.8s 0.8s both;
+  }
+  .hero-stats {
+    position: absolute;
+    right: 4rem; bottom: 8rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    animation: fadeIn 1s 1.2s both;
+  }
+  .stat-item { text-align: right; }
+  .stat-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--text);
+    line-height: 1;
+  }
+  .stat-num span { color: var(--accent); }
+  .stat-label { font-size: 0.78rem; color: var(--muted); letter-spacing: 0.04em; }
+  .hero-scroll {
+    position: absolute;
+    bottom: 2.5rem; left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+    color: var(--muted);
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    animation: fadeIn 1s 1.4s both;
+  }
+  .scroll-line {
+    width: 1px; height: 48px;
+    background: linear-gradient(to bottom, var(--muted), transparent);
+    animation: scrollDrop 2s ease-in-out infinite;
+  }
+  @keyframes scrollDrop {
+    0%{transform:scaleY(0);transform-origin:top}
+    50%{transform:scaleY(1);transform-origin:top}
+    51%{transform:scaleY(1);transform-origin:bottom}
+    100%{transform:scaleY(0);transform-origin:bottom}
+  }
+  @keyframes fadeUp { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
+  @keyframes fadeIn { from{opacity:0} to{opacity:1} }
+
+  .services-preview { background: var(--bg2); }
+  .services-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 3.5rem; gap: 2rem; flex-wrap: wrap; }
+  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); }
+  .service-card { background: var(--bg2); padding: 2.8rem; position: relative; overflow: hidden; transition: background 0.3s; cursor: none; }
+  .service-card::before { content:''; position:absolute; inset:0; background:linear-gradient(135deg,rgba(200,255,0,0.05) 0%,transparent 60%); opacity:0; transition:opacity 0.4s; }
+  .service-card:hover { background: var(--bg3); }
+  .service-card:hover::before { opacity: 1; }
+  .service-num { font-family:'Syne',sans-serif; font-size:0.72rem; font-weight:700; color:var(--accent); letter-spacing:0.1em; margin-bottom:1.8rem; }
+  .service-icon { width:52px; height:52px; border-radius:14px; background:rgba(200,255,0,0.07); border:1px solid rgba(200,255,0,0.15); display:flex; align-items:center; justify-content:center; margin-bottom:1.5rem; font-size:1.5rem; transition:transform 0.3s,box-shadow 0.3s; }
+  .service-card:hover .service-icon { transform:scale(1.1) rotate(-5deg); box-shadow:0 8px 30px rgba(200,255,0,0.15); }
+  .service-card h3 { font-family:'Syne',sans-serif; font-size:1.3rem; font-weight:700; margin-bottom:0.8rem; letter-spacing:-0.02em; }
+  .service-card p { color:var(--muted); font-size:0.9rem; line-height:1.65; margin-bottom:2rem; }
+  .service-link { display:inline-flex; align-items:center; gap:0.4rem; font-size:0.82rem; color:var(--accent); text-decoration:none; font-weight:500; cursor:none; transition:gap 0.2s; }
+  .service-link:hover { gap: 0.7rem; }
+
+  .why { background: var(--bg); }
+  .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); margin-top: 4rem; }
+  .why-item { padding: 2.5rem; background: var(--bg); position: relative; transition: background 0.3s; }
+  .why-item:hover { background: var(--bg2); }
+  .why-item-num { font-family:'Syne',sans-serif; font-size:3rem; font-weight:800; color:rgba(200,255,0,0.12); letter-spacing:-0.04em; margin-bottom:0.5rem; line-height:1; }
+  .why-item h3 { font-family:'Syne',sans-serif; font-size:1.15rem; font-weight:700; margin-bottom:0.6rem; letter-spacing:-0.01em; }
+  .why-item p { font-size:0.9rem; color:var(--muted); line-height:1.65; }
+
+  .cta-band {
+    background: var(--bg2);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 5rem 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+    flex-wrap: wrap;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-band::before {
+    content: '';
+    position: absolute;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(200,255,0,0.06) 0%, transparent 70%);
+    right: -100px; top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+  }
+  .cta-band h2 { font-family:'Syne',sans-serif; font-size:clamp(2rem,4vw,3.2rem); font-weight:800; letter-spacing:-0.03em; max-width:600px; line-height:1.1; }
+  .cta-band h2 span { color: var(--accent); }
+
+  @media (max-width:900px) {
+    .hero { padding: 0 1.5rem; min-height: 100svh; }
+    .hero h1 { font-size: clamp(2.4rem, 11vw, 4rem); }
+    .hero-stats { display: none; }
+    .services-header { flex-direction: column; align-items: flex-start; }
+    .services-grid { grid-template-columns: 1fr; }
+    .why-grid { grid-template-columns: 1fr; }
+    .cta-band { padding: 4rem 1.5rem; flex-direction: column; }
+    .btn-primary, .btn-ghost { width: 100%; justify-content: center; }
+  }
+
+  /* THREE.JS BACKGROUND */
+  #three-bg {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    z-index: 0;
+    pointer-events: none;
+  }
+  body > *:not(#three-bg):not(.cursor):not(.cursor-follower):not(.mobile-menu) {
+    position: relative;
+    z-index: 1;
+  }
+  .mobile-menu { z-index: 999; }
+
+</style>
+
+  <!-- SEO & Open Graph -->
+  <meta name="author" content="Medium29">
+  <meta name="geo.region" content="HR-14">
+  <meta name="geo.placename" content="Osijek">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Medium29 — Web dizajn, Marketing & Digital Signage">
+  <meta property="og:description" content="Kompletna digitalna podrška — web dizajn, digitalni marketing i digital signage rješenja za vaše poslovanje.">
+  <meta property="og:site_name" content="Medium29">
+  <meta property="og:locale" content="hr_HR">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Medium29 — Web dizajn, Marketing & Digital Signage">
+  <meta name="twitter:description" content="Kompletna digitalna podrška za vaše poslovanje.">
+</head>
+<body class="home-motion">
+
+<canvas id="three-bg"></canvas>
+<div class="cursor" id="cursor"></div>
+<div class="cursor-follower" id="cursorFollower"></div>
+
+<nav id="navbar">
+  <a href="/" class="logo">Medium<span>29</span></a>
+  <ul class="nav-links">
+    <li><a href="/">Početna</a></li>
+    <li><a href="/o-nama">O nama</a></li>
+    <li><a href="/usluge">Usluge</a></li>
+    <li><a href="/portfolio">Portfolio</a></li>
+    <li><a href="/kontakt" class="nav-cta">Kontakt</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Otvori meni">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <ul class="mobile-menu-links">
+    <li><a href="/">Početna</a></li>
+    <li><a href="/o-nama">O nama</a></li>
+    <li><a href="/usluge">Usluge</a></li>
+    <li><a href="/portfolio">Portfolio</a></li>
+  </ul>
+  <div class="mobile-menu-cta">
+    <a href="/kontakt">Zatraži ponudu</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="pocetak">
+  <div class="hero-bg-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-glow-2"></div>
+  <div class="hero-copy">
+    <div class="hero-kicker">Digital studio / Vukovar · Hrvatska</div>
+    <h1 aria-label="Sve digitalne usluge na jednom mjestu">
+      <span class="line"><span class="scramble" data-text="Sve digitalne">Sve digitalne</span></span>
+      <span class="line"><span class="accent-word scramble" data-text="usluge na">usluge na</span></span>
+      <span class="line"><span class="outline-word scramble" data-text="jednom mjestu">jednom mjestu</span></span>
+    </h1>
+    <div class="hero-meta">
+      <p class="hero-sub">Web dizajn, marketing i digital signage rješenja koja pretvaraju posjetitelje u klijente. Brza isporuka, podrška nakon projekta.</p>
+      <div class="hero-actions">
+        <a href="/kontakt" class="btn-primary">Zatraži ponudu <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a href="/portfolio" class="btn-ghost">Pogledaj radove</a>
+      </div>
+    </div>
+  </div>
+  <div class="hero-orbit-label motion-magnet"><span><b>M29</b>motion<br>lab</span></div>
+  <div class="hero-scroll"><div class="scroll-line"></div>Scroll</div>
+</section>
+
+<!-- SCROLL REEL -->
+<section class="motion-reel" aria-label="Digitalne usluge u pokretu">
+  <div class="motion-reel-head">
+    <h2>Digitalno koje se <span style="color:var(--accent)">pamti.</span></h2>
+    <p>Scroll pokreće sadržaj u suprotnim smjerovima — inspirirano motion portfolio pristupom, ali izvedeno bez teških GIF datoteka.</p>
+  </div>
+  <div class="motion-reel-row" data-direction="right">
+    <article class="motion-tile"><div class="motion-tile-top"><span>Web dizajn</span><i></i></div><div class="motion-tile-art browser"></div><h3 class="motion-tile-title">Web iskustva</h3></article>
+    <article class="motion-tile"><div class="motion-tile-top"><span>Performance</span><i></i></div><div class="motion-tile-art ads"></div><h3 class="motion-tile-title">Meta & Google Ads</h3></article>
+    <article class="motion-tile"><div class="motion-tile-top"><span>Digital signage</span><i></i></div><div class="motion-tile-art signage"></div><h3 class="motion-tile-title">Pametni ekrani</h3></article>
+    <article class="motion-tile"><div class="motion-tile-top"><span>SEO</span><i></i></div><div class="motion-tile-art seo"></div><h3 class="motion-tile-title">Organski rast</h3></article>
+    <article class="motion-tile"><div class="motion-tile-top"><span>Web dizajn</span><i></i></div><div class="motion-tile-art browser"></div><h3 class="motion-tile-title">Web iskustva</h3></article>
+  </div>
+  <div class="motion-reel-row" data-direction="left">
+    <article class="motion-tile"><div class="motion-tile-top"><span>Brand</span><i></i></div><div class="motion-tile-art signage"></div><h3 class="motion-tile-title">Digitalni identitet</h3></article>
+    <article class="motion-tile"><div class="motion-tile-top"><span>SEO</span><i></i></div><div class="motion-tile-art seo"></div><h3 class="motion-tile-title">Vidljivost</h3></article>
+    <article class="motion-tile"><div class="motion-tile-top"><span>Campaigns</span><i></i></div><div class="motion-tile-art ads"></div><h3 class="motion-tile-title">Konverzije</h3></article>
+    <article class="motion-tile"><div class="motion-tile-top"><span>Development</span><i></i></div><div class="motion-tile-art browser"></div><h3 class="motion-tile-title">Brzi webovi</h3></article>
+    <article class="motion-tile"><div class="motion-tile-top"><span>Display</span><i></i></div><div class="motion-tile-art signage"></div><h3 class="motion-tile-title">Sadržaj u prostoru</h3></article>
+  </div>
+</section>
+
+<section class="motion-statement">
+  <div class="motion-statement-inner">
+    <div class="motion-statement-label">Medium29 / pristup</div>
+    <p class="motion-statement-text" data-char-reveal>Ne gradimo još jednu web stranicu. Gradimo digitalno iskustvo koje izgleda premium, radi brzo i vodi korisnika prema sljedećem koraku.</p>
+  </div>
+</section>
+
+<!-- SERVICES PREVIEW -->
+<section class="services-preview">
+  <div class="services-header">
+    <div>
+      <div class="section-tag reveal">Naše usluge</div>
+      <h2 class="section-title reveal reveal-delay-1">Što radimo</h2>
+    </div>
+    <a href="/usluge" class="btn-ghost reveal reveal-delay-2">Sve usluge →</a>
+  </div>
+  <div class="services-grid">
+    <div class="service-card reveal">
+      <div class="service-num">01</div>
+      <div class="service-icon">🌐</div>
+      <h3>Web Dizajn & Razvoj</h3>
+      <p>Moderne, brze i prilagođene web stranice koje pretvaraju posjetitelje u klijente.</p>
+    </div>
+    <div class="service-card reveal reveal-delay-2">
+      <div class="service-num">02</div>
+      <div class="service-icon">📣</div>
+      <h3>Digitalni Marketing</h3>
+      <p>Strategija, sadržaj i oglašavanje koji povećavaju vidljivost i prodaju.</p>
+    </div>
+    <div class="service-card reveal reveal-delay-3">
+      <div class="service-num">03</div>
+      <div class="service-icon">📺</div>
+      <h3>Digital Signage</h3>
+      <p>Kompletna rješenja pametnih ekrana — od hardvera do sadržaja i podrške.</p>
+    </div>
+  </div>
+</section>
+
+<!-- MOTION PROJECT STACK -->
+<section class="motion-projects">
+  <div class="motion-projects-head">
+    <div class="eyebrow">Od ideje do rezultata</div>
+    <h2>Selected<br>work</h2>
+  </div>
+  <div class="motion-stack">
+    <div class="motion-card-space">
+      <article class="motion-project-card">
+        <div class="motion-project-top"><div class="motion-project-num">01</div><div class="motion-project-meta"><small>Web / UX / Development</small><h3>Premium web iskustva</h3></div><a class="motion-project-link" href="/portfolio">Portfolio</a></div>
+        <div class="motion-project-visuals"><div class="motion-mini-col"><div class="motion-shot web"></div><div class="motion-shot web"></div></div><div class="motion-shot web large"></div></div>
+      </article>
+    </div>
+    <div class="motion-card-space">
+      <article class="motion-project-card">
+        <div class="motion-project-top"><div class="motion-project-num">02</div><div class="motion-project-meta"><small>Meta / Google / Strategy</small><h3>Kampanje koje rastu</h3></div><a class="motion-project-link" href="/usluge">Usluge</a></div>
+        <div class="motion-project-visuals"><div class="motion-mini-col"><div class="motion-shot marketing"></div><div class="motion-shot marketing"></div></div><div class="motion-shot marketing large"></div></div>
+      </article>
+    </div>
+    <div class="motion-card-space">
+      <article class="motion-project-card">
+        <div class="motion-project-top"><div class="motion-project-num">03</div><div class="motion-project-meta"><small>Signage / Content / Support</small><h3>Digitalni prostor</h3></div><a class="motion-project-link" href="/kontakt">Kontakt</a></div>
+        <div class="motion-project-visuals"><div class="motion-mini-col"><div class="motion-shot signage"></div><div class="motion-shot signage"></div></div><div class="motion-shot signage large"></div></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="why">
+  <div class="section-tag reveal">Zašto Medium29</div>
+  <h2 class="section-title reveal reveal-delay-1">Razlozi zbog kojih<br>klijenti biraju nas</h2>
+  <div class="why-grid">
+    <div class="why-item reveal">
+      <div class="why-item-num">01</div>
+      <h3>Brza isporuka</h3>
+      <p>Poštujemo rokove bez kompromisa na kvaliteti. Prosječan projekt isporučujemo 3× brže od industrijskih standarda.</p>
+    </div>
+    <div class="why-item reveal reveal-delay-1">
+      <div class="why-item-num">02</div>
+      <h3>Rješenja po mjeri</h3>
+      <p>Ne koristimo generičke predloške. Svaki projekt gradimo od nule prema specifičnim potrebama klijenta.</p>
+    </div>
+    <div class="why-item reveal reveal-delay-2">
+      <div class="why-item-num">03</div>
+      <h3>Podrška nakon isporuke</h3>
+      <p>Naš odnos ne završava lansiranjem. Pružamo tehničku podršku i pratimo rezultate dugoročno.</p>
+    </div>
+    <div class="why-item reveal reveal-delay-3">
+      <div class="why-item-num">04</div>
+      <h3>Transparentna komunikacija</h3>
+      <p>Uvijek znate gdje je vaš projekt. Redovni izvještaji i dostupnost su dio naše kulture rada.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<div class="cta-band">
+  <h2>Pokrenimo vaš<br><span>projekt danas</span></h2>
+  <a href="/kontakt" class="btn-primary" style="font-size:1rem; padding:1rem 2.5rem;">
+    Zatraži besplatnu konzultaciju
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <a href="/" class="logo">Medium<span>29</span></a>
+      <p>Kompletna digitalna podrška za brendove koji žele ozbiljne rezultate.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Stranice</h4>
+      <ul>
+        <li><a href="/">Početna</a></li>
+        <li><a href="/o-nama">O nama</a></li>
+        <li><a href="/usluge">Usluge</a></li>
+        <li><a href="/portfolio">Portfolio</a></li>
+        <li><a href="/kontakt">Kontakt</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Usluge</h4>
+      <ul>
+        <li><a href="/usluge">Web dizajn</a></li>
+        <li><a href="/usluge">SEO optimizacija</a></li>
+        <li><a href="/usluge">Digital marketing</a></li>
+        <li><a href="/usluge">Digital signage</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Kontakt</h4>
+      <ul>
+        <li><a href="mailto:info.medium29@gmail.com">info.medium29@gmail.com</a></li>
+        <li><a href="https://medium29.com">medium29.com</a></li>
+        <li><a href="#">Osijek, Hrvatska</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Medium29. Sva prava pridržana.</p>
+    <div class="footer-legal">
+      <a href="/politika-privatnosti">Politika privatnosti</a>
+      <span aria-hidden="true">·</span>
+      <a href="/politika-kolacica">Politika kolačića</a>
+      <span aria-hidden="true">·</span>
+      <a href="#" class="cookie-settings-link">Postavke kolačića</a>
+    </div>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+<script>
+  document.addEventListener("mousemove", function(e) {
+    var xPct = (e.clientX / window.innerWidth - 0.5) * 40;
+    var yPct = (e.clientY / window.innerHeight - 0.5) * 40;
+    var glow = document.querySelector(".hero-glow");
+    if (glow) glow.style.transform = "translate(calc(-50% + " + xPct + "px), calc(-50% + " + yPct + "px))";
+  });
+</script>
+
+<script>
+// TEXT SCRAMBLE ANIMATION
+(function() {
+  var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$%&';
+
+  function scramble(el) {
+    var finalText = el.getAttribute('data-text');
+    var duration = 800;
+    var start = null;
+    var frameRate = 40;
+    var lastFrame = 0;
+
+    function randomChar() {
+      return chars[Math.floor(Math.random() * chars.length)];
+    }
+
+    function update(timestamp) {
+      if (!start) start = timestamp;
+      var elapsed = timestamp - start;
+      var progress = Math.min(elapsed / duration, 1);
+
+      // How many characters are "settled"
+      var settled = Math.floor(progress * finalText.length);
+
+      if (timestamp - lastFrame > frameRate) {
+        var result = '';
+        for (var i = 0; i < finalText.length; i++) {
+          if (finalText[i] === ' ') {
+            result += ' ';
+          } else if (i < settled) {
+            result += finalText[i];
+          } else {
+            result += randomChar();
+          }
+        }
+        el.textContent = result;
+
+        // Restore any child classes (accent-word, outline-word)
+        lastFrame = timestamp;
+      }
+
+      if (progress < 1) {
+        requestAnimationFrame(update);
+      } else {
+        el.textContent = finalText;
+      }
+    }
+
+    requestAnimationFrame(update);
+  }
+
+  // Start on page load with staggered delay per element
+  window.addEventListener('load', function() {
+    var elements = document.querySelectorAll('.scramble');
+    elements.forEach(function(el, i) {
+      setTimeout(function() {
+        scramble(el);
+      }, i * 120);
+    });
+  });
+})();
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="three-bg.js"></script>
+<script src="motion-lab.js"></script>
+<script src="cookie-consent.js"></script>
+</body>
+</html>

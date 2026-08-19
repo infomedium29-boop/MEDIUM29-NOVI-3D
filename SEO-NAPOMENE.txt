@@ -1,0 +1,15 @@
+MEDIUM29 SEO POPRAVKA
+
+Urađeno:
+- canonical tagovi prebačeni sa stare Netlify domene na https://medium29.com
+- sitemap.xml prebačen na čiste URL-ove bez .html
+- robots.txt pokazuje na pravi sitemap
+- interni linkovi prebačeni na čiste URL-ove
+- dodan _redirects za Cloudflare Pages: /index.html i .html URL-ovi idu na glavne URL-ove
+
+Nakon deploya u Google Search Console provjeriti:
+https://medium29.com/
+https://medium29.com/o-nama
+https://medium29.com/usluge
+https://medium29.com/portfolio
+https://medium29.com/kontakt

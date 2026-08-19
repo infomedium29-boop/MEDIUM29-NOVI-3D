@@ -1,0 +1,21 @@
+MEDIUM29 — PRIVATNOST I ANTI-SPAM AŽURIRANJE
+Datum: 14.07.2026.
+
+ŠTO JE PROMIJENJENO
+- Ispravljena netočna rečenica da se podaci iz kontakt forme ne dijele s trećim stranama.
+- Kontakt forma sada jasno upućuje na Politiku privatnosti.
+- Dodan Web3Forms honeypot (botcheck).
+- Dodana hCaptcha zaštita i provjera prije slanja forme.
+- Proširena Politika privatnosti s podacima o Web3Formsu, IP adresama, tehničkim pružateljima, pravnim osnovama, rokovima i pravima ispitanika.
+- Proširena Politika kolačića i naveden stvarni localStorage ključ.
+- Privola za kolačiće istječe nakon 180 dana.
+- Dodan X za zatvaranje bannera; zatvaranje znači nastavak samo s nužnim tehnologijama.
+- Dodane poveznice na Politiku privatnosti, Politiku kolačića i Postavke kolačića u footer svih glavnih stranica.
+- Dodani osnovni sigurnosni HTTP headeri za Cloudflare Pages.
+
+VAŽNO ZA POTPUNU HCAPTCHA ZAŠTITU
+U Web3Forms dashboardu za ovu formu odaberite hCaptcha kao "Block Spam" / CAPTCHA opciju.
+Kod na stranici već prikazuje i provjerava hCaptcha widget, a botcheck radi kao dodatna zaštita.
+
+NAPOMENA
+Ako naknadno dodate Google Analytics, Meta Pixel, newsletter, chat, booking, CRM ili drugu uslugu, potrebno je ponovno ažurirati politike privatnosti/kolačića i konfiguraciju privole.
